@@ -6,10 +6,10 @@ import { User } from './interface/user';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'SAP_API';
-  private user:User = {
-    
+  private user: User = {
+
     'name': 'mohammad ayesh',
     'username': 'Bret',
     'email': 'Sincere@april.biz',
@@ -32,38 +32,37 @@ export class AppComponent implements OnInit{
     }
   };
 
-  constructor(private SapService: SapApiService) {}
+  constructor(private SapService: SapApiService) { }
 
   onGetUsers(): void {
-    
+
     this.SapService.getUsers().subscribe(
-      (response)=> console.table(response),
-      (error: any)=> console.log(error),
-      ()=> console.log('Done gitting all the Users')
-      );
-    }
-
-    onGetUser(): void {
-    
-      this.SapService.getUser().subscribe(
-        (response)=> console.log(response),
-        (error: any)=> console.log(error),
-        ()=> console.log('Done gitting one User')
-        );
-      }
-    onCreateUser(): void {
-    
-      this.SapService.creatUser(this.user).subscribe(
-        (response)=> console.table(response),
-        (error: any)=> console.log(error),
-        ()=> console.log('Done Creating User')
-        );
-      }
-
-    ngOnInit(): void {
-      this.onGetUsers();
-      this.onCreateUser();
-      // this.onGetUser();
-    }
+      (response) => console.table(response),
+      (error: any) => console.log(error),
+      () => console.log('Done gitting all the Users')
+    );
   }
-  
+
+  onGetUser(): void {
+
+    this.SapService.getUser().subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(error),
+      () => console.log('Done gitting one User')
+    );
+  }
+  onCreateUser(): void {
+
+    this.SapService.creatUser(this.user).subscribe(
+      (response) => console.table(response),
+      (error: any) => console.log(error),
+      () => console.log('Done Creating User')
+    );
+  }
+
+  ngOnInit(): void {
+    // this.onGetUsers();
+    // this.onCreateUser();
+    // this.onGetUser();
+  }
+} 

@@ -1,0 +1,7 @@
+<div *ngIf="data">
+    <h1>Data Display</h1>
+    <ul>
+      <li *ngFor="let item of data">{{ item.address.geo.lat }}</li>
+    </ul>
+  </div>
+  
